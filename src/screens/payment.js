@@ -16,17 +16,17 @@ class Payment extends React.Component {
     cardDetails: null,
   };
 
+  componentWillReceiveProps(newProps) {
+    const { paying, navigation } = this.props;
+
+    if (paying && newProps.paymentConfirmed) navigation.navigate('PaymentConfirmation');
+  }
+
   onCardInputChange = (creditCardForm) => {
     this.setState({
       validCardDetails: creditCardForm.valid,
       cardDetails: creditCardForm.values,
     });
-  }
-
-  componentWillReceiveProps(newProps) {
-    const { paying, navigation } = this.props;
-
-    if (paying && newProps.paymentConfirmed) navigation.navigate('PaymentConfirmation');
   }
 
   render() {
@@ -74,11 +74,6 @@ class Payment extends React.Component {
   }
 }
 
-Payment.navigationOptions = {
-  drawerLabel: 'MyCart',
-  tabBarIcon: () => <Icon name="cart" />,
-};
-
 Payment.propTypes = {
   user: PropTypes.object,
   cart: PropTypes.array,
@@ -91,6 +86,11 @@ Payment.propTypes = {
   error: PropTypes.string,
   paymentConfirmed: PropTypes.bool,
   navigation: PropTypes.object.isRequired,
+};
+
+Payment.navigationOptions = {
+  drawerLabel: 'MyCart',
+  tabBarIcon: () => <Icon name="cart" />,
 };
 
 function mapStateToProps(state) {
