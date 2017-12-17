@@ -13,10 +13,12 @@ class MyCart extends React.Component {
   }
 
   render() {
+    const { cart, navigation } = this.props;
+
     return (
       <View>
         <ScrollView>
-          {this.props.cart.map((p, i) => (
+          {cart.map((p, i) => (
             <ListItem key={i} style={{ justifyContent: 'space-between' }}>
               <Badge primary><Text>{p.quantity}</Text></Badge>
               <Text>{p.name}</Text>
@@ -25,22 +27,22 @@ class MyCart extends React.Component {
               </Button>
             </ListItem>
           ))}
-          {this.props.cart.length > 0 && (
+          {cart.length > 0 && (
             <View>
               <Text style={{ alignSelf: 'flex-end', margin: 10 }}>
-                Total: ${this.props.cart.reduce((sum, p) => sum + p.price * p.quantity, 0)}
+                Total: ${cart.reduce((sum, p) => sum + p.price * p.quantity, 0)}
               </Text>
               <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <Button style={{ margin: 10 }} onPress={() => this.props.navigation.navigate('Home')}>
+                <Button style={{ margin: 10 }} onPress={() => navigation.navigate('Home')}>
                   <Text>Keep buying</Text>
                 </Button>
-                <Button style={{ margin: 10 }} onPress={() => this.props.navigation.navigate('Payment')}>
+                <Button style={{ margin: 10 }} onPress={() => navigation.navigate('Payment')}>
                   <Text>Confirm purchase</Text>
                 </Button>
               </View>
             </View>
           )}
-          {this.props.cart.length === 0 && (
+          {cart.length === 0 && (
             <Text style={{ alignSelf: 'center', margin: 30 }}>There are no products in the cart</Text>
           )}
         </ScrollView>
