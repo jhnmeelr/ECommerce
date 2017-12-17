@@ -8,7 +8,7 @@ import { Icon, Button, Text, Spinner, Title } from 'native-base';
 
 import * as PaymentsActions from '../reducers/payments';
 import * as UserActions from '../reducers/user';
-import LoginOrRegister from '../components/LoginOrRegister';
+import LoginOrRegister from '../components/login-or-register';
 
 class Payment extends React.Component {
   state = {

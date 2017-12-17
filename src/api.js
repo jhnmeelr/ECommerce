@@ -8,7 +8,7 @@ export const get = uri => new Promise(resolve => {
           name: 'Mastering Docker - Second Edition',
           author: 'James Cameron',
           img: 'https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B06565_MockupCover_0.png',
-          price: 39.58,
+          price: 39,
         },
       ];
       break;

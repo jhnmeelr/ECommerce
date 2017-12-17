@@ -17,7 +17,7 @@ class ProductDetail extends React.Component {
   }
 
   render() {
-    const { navigation: { state: { params: product } } } = this.props;
+    const { navigation: { state: { params: { product } } } } = this.props;
 
     return (
       <ScrollView>
