@@ -8,18 +8,6 @@ import { Spinner, Icon, List, ListItem, Thumbnail, Body, Text } from 'native-bas
 import * as ProductActions from '../reducers/products';
 
 class ProductList extends React.Component {
-  static propTypes = {
-    fetchProducts: PropTypes.func.isRequired,
-    products: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-    navigation: PropTypes.any.isRequired,
-  }
-
-  static navigationOptions = {
-    drawerLabel: 'Home',
-    tabBarIcon: () => <Icon name="home" />,
-  };
-
   componentWillMount() {
     this.props.fetchProducts();
   }
@@ -51,6 +39,18 @@ class ProductList extends React.Component {
     );
   }
 }
+
+ProductList.propTypes = {
+  fetchProducts: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  navigation: PropTypes.any.isRequired,
+};
+
+ProductList.navigationOptions = {
+  drawerLabel: 'Home',
+  tabBarIcon: () => <Icon name="home" />,
+};
 
 function mapStateToProps(state) {
   return {
