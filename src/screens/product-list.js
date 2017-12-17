@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { ScrollView, TouchableOpacity } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Spinner, Icon, List, ListItem, Thumbnail, Body, Text } from 'native-base';
